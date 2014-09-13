@@ -4,13 +4,17 @@ using System.Collections.Generic;
 
 namespace Tree.SortedBinaryTrees
 {
-    public class SortedBinaryTree<T> : ICollection<T> where T : IComparable
+    public class SortedBinaryTree<T> : ICollection<T>, IList<T> where T : IComparable
     {
-        public List<BinaryTreeNode<T>> testList = new List<BinaryTreeNode<T>>();
         private int count;
         private BinaryTreeNode<T> root;
+        private T[] preOrderTraversal;
 
         public int Count
+        {
+            get { return count; }
+        }
+        int ICollection<T>.Count
         {
             get { return this.count; }
         }
@@ -24,9 +28,15 @@ namespace Tree.SortedBinaryTrees
             get { return false; }
         }
 
+        public T this[int index]
+        {
+            get { return preOrderTraversal[index]; }
+            set { preOrderTraversal[index] = value; }
+        }
+
         public SortedBinaryTree()
         {
-            
+            preOrderTraversal = new T[count];
         }
 
         public void Add(T item)
@@ -40,6 +50,15 @@ namespace Tree.SortedBinaryTrees
             }
 
             this.root.Insert(item);
+
+            this.RecreateArray();
+        }
+
+        public void Insert(int index, T item)
+        {
+            var parent = root.Find(this.preOrderTraversal[index]);
+            parent.Insert(item);
+            this.RecreateArray();
         }
 
         public T Lowest()
@@ -61,32 +80,102 @@ namespace Tree.SortedBinaryTrees
             }
         }
 
+        public int IndexOf(T item)
+        {
+            for (int i = 0; i < preOrderTraversal.Length; i++)
+                if (preOrderTraversal[i].Equals(item))
+                    return i;
+
+            return -1;
+        }
+
         public bool Contains(T item)
         {
-            return root.Find(item);
+            return root.Contains(item);
+        }
+
+        private void RecreateArray()
+        {
+            //pre-order traversal
+            Stack<BinaryTreeNode<T>> stack = new Stack<BinaryTreeNode<T>>();
+            stack.Push(null);
+
+            var temp = root;
+            int i = 0;
+
+            preOrderTraversal = new T[count];
+
+            while (temp != null)
+            {
+                preOrderTraversal[i] = temp.TValue;
+
+                if (temp.Right != null)
+                    stack.Push(temp.Right);
+
+                if (temp.Left != null)
+                    stack.Push(temp.Left);
+
+                temp = stack.Pop();
+                i++;
+            }
+        }
+
+        public void CopyTo(T[] array)
+        {
+            this.CopyTo(array, 0);
         }
 
         public void CopyTo(T[] array, int arrayIndex)
         {
-            throw new NotImplementedException();
+            //pre-order traversal
+            Stack<BinaryTreeNode<T>> stack = new Stack<BinaryTreeNode<T>>();
+            stack.Push(null);
+
+            var temp = root;
+            int i = arrayIndex;
+
+            while (temp != null)
+            {
+                array[i] = temp.TValue;
+
+                if (temp.Right != null)
+                    stack.Push(temp.Right);
+
+                if (temp.Left != null)
+                    stack.Push(temp.Left);
+
+                temp = stack.Pop();
+                i++;
+            }
         }
 
         public bool Remove(T item)
         {
             this.count--;
+            this.RecreateArray();
+
             return this.root.RemoveValue(item);
+        }
+
+        public void RemoveAt(int index)
+        {
+            this.Remove(preOrderTraversal[index]);
+            this.RecreateArray();
         }
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            var nodes = new T[count];
+            this.CopyTo(nodes);
+
+            return new SortedBinaryEnumerator<T>(nodes);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return (IEnumerator<T>)GetEnumerator();
         }
-
+    
         [Serializable]
         public class DublicationException : Exception
         {

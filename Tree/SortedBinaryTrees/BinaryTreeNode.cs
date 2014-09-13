@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Tree.SortedBinaryTrees
@@ -47,7 +48,6 @@ namespace Tree.SortedBinaryTrees
                     else
                     {
                         this.Left = new BinaryTreeNode<T>(other, tree, this);
-                        this.tree.testList.Add(this.Left);
                     }  
                     break;
                 case 1:
@@ -56,7 +56,6 @@ namespace Tree.SortedBinaryTrees
                     else
                     {
                         this.Right = new BinaryTreeNode<T>(other, tree, this);
-                        this.tree.testList.Add(this.Right);
                     }  
                     break;
                 case 0:
@@ -104,7 +103,7 @@ namespace Tree.SortedBinaryTrees
 
         }
 
-        public bool Find(T item)
+        public bool Contains(T item)
         {
             switch (item.CompareTo(TValue))
             {
@@ -112,16 +111,37 @@ namespace Tree.SortedBinaryTrees
                     if (this.Left == null)
                         return false;
                     else
-                        return Left.Find(item);
+                        return Left.Contains(item);
                 case 0:
                     return true;
                 case 1:
                     if (this.Right == null)
                         return false;
                     else
-                        return Right.Find(item);
+                        return Right.Contains(item);
                 default:
                     return false;
+            }
+        }
+
+        public BinaryTreeNode<T> Find(T item)
+        {
+            switch (this.TValue.CompareTo(item))
+            {
+                case -1:
+                    if (this.Left == null)
+                        throw new InvalidNodeException(string.Format("Item {0} was not found in the tree", item));
+                    else
+                        return Left.Find(item);
+                case 0:
+                    return this;
+                case 1:
+                    if (this.Right == null)
+                        throw new InvalidNodeException(string.Format("Item {0} was not found in the tree", item));
+                    else
+                        return Right.Find(item);
+                default:
+                    throw new InvalidNodeException(string.Format("Item {0} was not found in the tree", item));
             }
         }
 
@@ -158,7 +178,6 @@ namespace Tree.SortedBinaryTrees
                 {
                     tree.Root = null;
                 }
-                tree.testList.Remove(this);
             }
             else
             {
@@ -175,6 +194,18 @@ namespace Tree.SortedBinaryTrees
                     node.Dispose();
                 }
             }
+        }
+
+        [Serializable]
+        public class InvalidNodeException : Exception
+        {   
+            public InvalidNodeException() { }
+            public InvalidNodeException(string message) : base(message) { }
+            public InvalidNodeException(string message, Exception inner) : base(message, inner) { }
+            protected InvalidNodeException(
+              System.Runtime.Serialization.SerializationInfo info,
+              System.Runtime.Serialization.StreamingContext context)
+                : base(info, context) { }
         }
     }
 }
