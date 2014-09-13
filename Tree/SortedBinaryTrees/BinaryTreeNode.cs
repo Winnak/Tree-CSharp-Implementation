@@ -83,7 +83,7 @@ namespace Tree.SortedBinaryTrees
 
         public bool RemoveValue(T item)
         {
-            switch (item.CompareTo(this.TValue))
+            switch (TValue.CompareTo(item))
             {
                 case -1:
                     if (this.Left != null)
@@ -97,11 +97,32 @@ namespace Tree.SortedBinaryTrees
                     if (this.Right != null)
                         return false;
                     else
-                        return this.Left.RemoveValue(item);
+                        return this.Right.RemoveValue(item);
                 default:
                     return false;
             }
 
+        }
+
+        public bool Find(T item)
+        {
+            switch (item.CompareTo(TValue))
+            {
+                case -1:
+                    if (this.Left == null)
+                        return false;
+                    else
+                        return Left.Find(item);
+                case 0:
+                    return true;
+                case 1:
+                    if (this.Right == null)
+                        return false;
+                    else
+                        return Right.Find(item);
+                default:
+                    return false;
+            }
         }
 
         public override string ToString()
@@ -112,7 +133,7 @@ namespace Tree.SortedBinaryTrees
 
             while (!temp.IsRoot)
             {
-                print += " > " + temp.Parent;
+                print += " > " + temp.Parent.TValue;
                 temp = temp.Parent;
             }
 

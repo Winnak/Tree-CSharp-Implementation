@@ -34,7 +34,10 @@ namespace Tree.SortedBinaryTrees
             this.count++;
 
             if (this.root == null)
+            {
                 this.root = new BinaryTreeNode<T>(item, this, null);
+                return;
+            }
 
             this.root.Insert(item);
         }
@@ -60,7 +63,7 @@ namespace Tree.SortedBinaryTrees
 
         public bool Contains(T item)
         {
-            throw new NotImplementedException();
+            return root.Find(item);
         }
 
         public void CopyTo(T[] array, int arrayIndex)
