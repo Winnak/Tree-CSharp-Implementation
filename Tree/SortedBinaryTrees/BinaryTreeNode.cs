@@ -82,18 +82,19 @@ namespace Tree.SortedBinaryTrees
 
         public bool RemoveValue(T item)
         {
-            switch (TValue.CompareTo(item))
+            switch (item.CompareTo(TValue))
             {
                 case -1:
-                    if (this.Left != null)
+                    if (this.Left == null)
                         return false;
                     else
                         return this.Left.RemoveValue(item);
                 case 0:
                     this.Dispose();
+                    this.tree.RecreateArray();
                     return true;
                 case 1:
-                    if (this.Right != null)
+                    if (this.Right == null)
                         return false;
                     else
                         return this.Right.RemoveValue(item);

@@ -94,7 +94,7 @@ namespace Tree.SortedBinaryTrees
             return root.Contains(item);
         }
 
-        private void RecreateArray()
+        public void RecreateArray()
         {
             //pre-order traversal
             Stack<BinaryTreeNode<T>> stack = new Stack<BinaryTreeNode<T>>();
@@ -152,7 +152,6 @@ namespace Tree.SortedBinaryTrees
         public bool Remove(T item)
         {
             this.count--;
-            this.RecreateArray();
 
             return this.root.RemoveValue(item);
         }
