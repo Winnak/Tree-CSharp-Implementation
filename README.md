@@ -1,4 +1,5 @@
-# Trees C# implementation (Currently just BST)
+# Trees C# implementation 
+*(Currently just BST)*
 I did this just for fun.
 
 ##TODO:
