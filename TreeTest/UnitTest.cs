@@ -115,5 +115,16 @@ namespace TreeTest
             Assert.IsFalse(tree.Contains(34), "Checking if 34 is in the tree.");
         }
 
+        [TestMethod]
+        public void TestBSTEnumerator()
+        {
+            var tree = new BinarySearchTree<int>() { 40, 11, 62, 43, 34, 16, 10, 63 };
+            int[] expected = new int[] { 40, 11, 10, 34, 16, 62, 43, 63 };
+
+            for (int i = 0; i < expected.Length; i++)
+            {
+                Assert.AreEqual(expected[i], tree[i], "Checkin {0} place of tree.", i);
+            }
+        }
     }
 }
