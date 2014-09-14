@@ -7,3 +7,5 @@ I did this just for fun.
 * BST: Write some documentation
 * Switch unittest from VS' test suite to NUnit.
 * Try heap trees.
+
+This project uses the Unlicense.
