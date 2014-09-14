@@ -16,7 +16,7 @@ namespace Tree.BinarySearchTrees
 
         public bool IsRoot
         {
-            get { return Parent == null; }
+            get { return Parent == null && this.tree.Root == this; }
         }
         public bool IsLeaf
         {
@@ -144,21 +144,6 @@ namespace Tree.BinarySearchTrees
                 default:
                     throw new InvalidNodeException(string.Format("Item {0} was not found in the tree", item));
             }
-        }
-
-        public override string ToString()
-        {
-            string print = this.TValue.ToString();
-
-            var temp = this;
-
-            while (!temp.IsRoot)
-            {
-                print += " > " + temp.Parent.TValue;
-                temp = temp.Parent;
-            }
-
-            return print;
         }
 
         public void Dispose()
