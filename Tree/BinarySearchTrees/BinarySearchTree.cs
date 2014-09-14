@@ -2,12 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Tree.SortedBinaryTrees
+namespace Tree.BinarySearchTrees
 {
-    public class SortedBinaryTree<T> : ICollection<T>, IList<T> where T : IComparable
+    public class BinarySearchTree<T> : ICollection<T>, IList<T> where T : IComparable
     {
         private int count;
-        private BinaryTreeNode<T> root;
+        private BinarySearchNode<T> root;
         private T[] preOrderTraversal;
 
         public int Count
@@ -18,7 +18,7 @@ namespace Tree.SortedBinaryTrees
         {
             get { return this.count; }
         }
-        public BinaryTreeNode<T> Root
+        public BinarySearchNode<T> Root
         {
             get { return root; }
             set { root = value; }
@@ -34,7 +34,7 @@ namespace Tree.SortedBinaryTrees
             set { preOrderTraversal[index] = value; }
         }
 
-        public SortedBinaryTree()
+        public BinarySearchTree()
         {
             preOrderTraversal = new T[count];
         }
@@ -45,7 +45,7 @@ namespace Tree.SortedBinaryTrees
 
             if (this.root == null)
             {
-                this.root = new BinaryTreeNode<T>(item, this, null);
+                this.root = new BinarySearchNode<T>(item, this, null);
                 return;
             }
 
@@ -97,7 +97,7 @@ namespace Tree.SortedBinaryTrees
         public void RecreateArray()
         {
             //pre-order traversal
-            Stack<BinaryTreeNode<T>> stack = new Stack<BinaryTreeNode<T>>();
+            Stack<BinarySearchNode<T>> stack = new Stack<BinarySearchNode<T>>();
             stack.Push(null);
 
             var temp = root;
@@ -128,7 +128,7 @@ namespace Tree.SortedBinaryTrees
         public void CopyTo(T[] array, int arrayIndex)
         {
             //pre-order traversal
-            Stack<BinaryTreeNode<T>> stack = new Stack<BinaryTreeNode<T>>();
+            Stack<BinarySearchNode<T>> stack = new Stack<BinarySearchNode<T>>();
             stack.Push(null);
 
             var temp = root;
@@ -159,7 +159,6 @@ namespace Tree.SortedBinaryTrees
         public void RemoveAt(int index)
         {
             this.Remove(preOrderTraversal[index]);
-            this.RecreateArray();
         }
 
         public IEnumerator<T> GetEnumerator()
@@ -167,7 +166,7 @@ namespace Tree.SortedBinaryTrees
             var nodes = new T[count];
             this.CopyTo(nodes);
 
-            return new SortedBinaryEnumerator<T>(nodes);
+            return new BinarySearchEnumerator<T>(nodes);
         }
 
         IEnumerator IEnumerable.GetEnumerator()

@@ -2,17 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Tree.SortedBinaryTrees
+namespace Tree.BinarySearchTrees
 {
-    public class BinaryTreeNode<T> : IDisposable where T : IComparable
+    public class BinarySearchNode<T> : IDisposable where T : IComparable
     {
-        private SortedBinaryTree<T> tree;
+        private BinarySearchTree<T> tree;
 
         public T TValue;
 
-        public BinaryTreeNode<T> Parent;
-        public BinaryTreeNode<T> Left;
-        public BinaryTreeNode<T> Right;
+        public BinarySearchNode<T> Parent;
+        public BinarySearchNode<T> Left;
+        public BinarySearchNode<T> Right;
 
         public bool IsRoot
         {
@@ -31,7 +31,7 @@ namespace Tree.SortedBinaryTrees
             get { return Left != null ^ Right != null; }
         }
 
-        public BinaryTreeNode(T value, SortedBinaryTree<T> tree, BinaryTreeNode<T> parent)
+        public BinarySearchNode(T value, BinarySearchTree<T> tree, BinarySearchNode<T> parent)
         {
             this.Parent = parent;
             this.TValue = value;
@@ -47,7 +47,7 @@ namespace Tree.SortedBinaryTrees
                         this.Left.Insert(other);
                     else
                     {
-                        this.Left = new BinaryTreeNode<T>(other, tree, this);
+                        this.Left = new BinarySearchNode<T>(other, tree, this);
                     }  
                     break;
                 case 1:
@@ -55,7 +55,7 @@ namespace Tree.SortedBinaryTrees
                         this.Right.Insert(other);
                     else
                     {
-                        this.Right = new BinaryTreeNode<T>(other, tree, this);
+                        this.Right = new BinarySearchNode<T>(other, tree, this);
                     }  
                     break;
                 case 0:
@@ -64,7 +64,7 @@ namespace Tree.SortedBinaryTrees
             }
         }
 
-        public BinaryTreeNode<T> FindMinimum()
+        public BinarySearchNode<T> FindMinimum()
         {
             if (this.Left != null)
                 return this.Left.FindMinimum();
@@ -72,7 +72,7 @@ namespace Tree.SortedBinaryTrees
                 return this;
         }
 
-        public BinaryTreeNode<T> FindMaximum()
+        public BinarySearchNode<T> FindMaximum()
         {
             if (this.Right != null)
                 return this.Right.FindMaximum();
@@ -125,7 +125,7 @@ namespace Tree.SortedBinaryTrees
             }
         }
 
-        public BinaryTreeNode<T> Find(T item)
+        public BinarySearchNode<T> Find(T item)
         {
             switch (this.TValue.CompareTo(item))
             {

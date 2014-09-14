@@ -2,9 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Tree.SortedBinaryTrees
+namespace Tree.BinarySearchTrees
 {
-    class SortedBinaryEnumerator<T> : IEnumerator<T> where T : IComparable
+    class BinarySearchEnumerator<T> : IEnumerator<T> where T : IComparable
     {
         public T[] Nodes;
         private int position = -1;
@@ -26,13 +26,10 @@ namespace Tree.SortedBinaryTrees
 
         object IEnumerator.Current
         {
-            get
-            {
-                return Current;
-            }
+            get { return Current; }
         }
 
-        public SortedBinaryEnumerator(T[] nodes)
+        public BinarySearchEnumerator(T[] nodes)
         {
             this.Nodes = nodes;
         }
