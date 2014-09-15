@@ -8,7 +8,6 @@ namespace Tree.BinarySearchTrees
     {
         private int count;
         private BinarySearchNode<T> root;
-        private T[] preOrderTraversal;
 
         public int Count
         {
@@ -30,13 +29,13 @@ namespace Tree.BinarySearchTrees
 
         public T this[int index]
         {
-            get { return preOrderTraversal[index]; }
-            set { preOrderTraversal[index] = value; }
+            get { return this.RecreateArray()[index]; }
+            set { this[index] = value; }
         }
 
         public BinarySearchTree()
         {
-            preOrderTraversal = new T[count];
+
         }
 
         public void Add(T item)
@@ -56,7 +55,7 @@ namespace Tree.BinarySearchTrees
 
         public void Insert(int index, T item)
         {
-            var parent = root.Find(this.preOrderTraversal[index]);
+            var parent = root.Find(this[index]);
             parent.Insert(item);
             this.RecreateArray();
         }
@@ -82,8 +81,8 @@ namespace Tree.BinarySearchTrees
 
         public int IndexOf(T item)
         {
-            for (int i = 0; i < preOrderTraversal.Length; i++)
-                if (preOrderTraversal[i].Equals(item))
+            for (int i = 0; i < this.count; i++)
+                if (this[i].Equals(item))
                     return i;
 
             return -1;
@@ -94,7 +93,7 @@ namespace Tree.BinarySearchTrees
             return root.Contains(item);
         }
 
-        public void RecreateArray()
+        private T[] RecreateArray()
         {
             //pre-order traversal
             Stack<BinarySearchNode<T>> stack = new Stack<BinarySearchNode<T>>();
@@ -103,7 +102,7 @@ namespace Tree.BinarySearchTrees
             var temp = root;
             int i = 0;
 
-            preOrderTraversal = new T[count];
+            var preOrderTraversal = new T[count];
 
             while (temp != null)
             {
@@ -118,6 +117,8 @@ namespace Tree.BinarySearchTrees
                 temp = stack.Pop();
                 i++;
             }
+
+            return preOrderTraversal;
         }
 
         public void CopyTo(T[] array)
@@ -158,7 +159,7 @@ namespace Tree.BinarySearchTrees
 
         public void RemoveAt(int index)
         {
-            this.Remove(preOrderTraversal[index]);
+            this.Remove(this[index]);
         }
 
         public IEnumerator<T> GetEnumerator()

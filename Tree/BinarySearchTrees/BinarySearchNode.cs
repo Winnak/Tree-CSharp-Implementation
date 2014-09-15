@@ -91,7 +91,6 @@ namespace Tree.BinarySearchTrees
                         return this.Left.RemoveValue(item);
                 case 0:
                     this.Dispose();
-                    this.tree.RecreateArray();
                     return true;
                 case 1:
                     if (this.Right == null)
