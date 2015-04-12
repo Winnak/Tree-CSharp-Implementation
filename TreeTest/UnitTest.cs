@@ -140,5 +140,46 @@ namespace TreeTest
                 Assert.AreEqual(expected[i], sorted[i], "Checkin {0} place of tree.", i);
             }
         }
+
+        [TestMethod]
+        public void TestBSTBalance()
+        {
+            // The unbalanced int tree
+            //      0
+            //       \
+            //        1
+            //         \
+            //          2
+            //           ...
+            //            \
+            //             16
+
+            // The balanced int tree
+            //                 8
+            //             /      \
+            //           4         13
+            //         /  \       /  \
+            //       2     6     11   15
+            //      / \   / \   / \   / \
+            //     1   3 5   7 10 12 14 16
+            //    /           /
+            //   0           9
+            var tree = new BinarySearchTree<int>() 
+            {   
+                0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16    
+            };
+
+            int[] expected = new int[]
+            {
+                8, 4, 2, 1, 0, 3, 6, 5, 7, 13, 11, 10, 9, 12, 15, 14, 16
+            };
+
+            tree.Balance();
+
+            for (int i = 0; i < expected.Length; i++)
+            {
+                Assert.AreEqual(expected[i], tree[i], "Checkin {0} place of tree.", i);
+            }
+        }
     }
 }

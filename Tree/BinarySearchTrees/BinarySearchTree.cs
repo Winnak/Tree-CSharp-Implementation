@@ -52,8 +52,6 @@ namespace Tree.BinarySearchTrees
             }
 
             this.root.Insert(item);
-
-            this.RecreateArray();
         }
 
         public void Add(params T[] bulk)
@@ -68,7 +66,6 @@ namespace Tree.BinarySearchTrees
         {
             var parent = root.Find(this[index]);
             parent.Insert(item);
-            this.RecreateArray();
         }
 
         public T Lowest()
@@ -132,6 +129,44 @@ namespace Tree.BinarySearchTrees
                 arrayIndex++;
             }
         }
+
+        public void Balance()
+        {
+            var sorted = this.Sort();
+
+            var trans = new Queue<T>();
+            Unsort(sorted, trans, 0, sorted.Length - 1);
+
+            this.Clear();
+
+            while (trans.Count > 0)
+            {
+                this.Add(trans.Dequeue());
+            }
+        }
+
+        private void Unsort(T[] array, Queue<T> trans, int start, int end)
+        {
+            int pivot = start + (end - start + 1) / 2;
+            trans.Enqueue(array[pivot]);
+
+            if (start < pivot )
+            {
+                Unsort(array, trans, start, pivot - 1);
+            }
+            if (pivot < end)
+            {
+                Unsort(array, trans, pivot + 1, end);
+            }
+        }
+
+        private int Partition(T[] array, T[] trans, int start, int end)
+        {
+            int pivot = (end - start) / 2;
+
+            return end;
+        }
+
 
         public T[] Sort()
         {
