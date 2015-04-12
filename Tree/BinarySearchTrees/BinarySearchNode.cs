@@ -8,11 +8,35 @@ namespace Tree.BinarySearchTrees
     {
         private BinarySearchTree<T> tree;
 
-        public T TValue;
+        private T TValue;
 
-        public BinarySearchNode<T> Parent;
-        public BinarySearchNode<T> Left;
-        public BinarySearchNode<T> Right;
+        private BinarySearchNode<T> parent;
+        private BinarySearchNode<T> left;
+        private BinarySearchNode<T> right;
+
+        public T Value
+        {
+            get { return TValue; }
+            set { TValue = value; }
+        }
+
+        public BinarySearchNode<T> Parent
+        {
+            get { return parent; }
+            set { parent = value; }
+        }
+
+        public BinarySearchNode<T> Left
+        {
+            get { return left; }
+            set { left = value; }
+        }
+
+        public BinarySearchNode<T> Right
+        {
+            get { return right; }
+            set { right = value; }
+        }
 
         public bool IsRoot
         {
@@ -142,6 +166,54 @@ namespace Tree.BinarySearchTrees
                         return Right.Find(item);
                 default:
                     throw new InvalidNodeException(string.Format("Item {0} was not found in the tree", item));
+            }
+        }
+
+        public IEnumerable<T> Preorder()
+        {
+            yield return Value;
+            if (Left != null)
+                foreach (var value in Left.Preorder())
+                    yield return value;
+            if (Right != null)
+                foreach (var value in Right.Preorder())
+                    yield return value;
+        }
+
+        public IEnumerable<T> Inorder()
+        {
+            if (Left != null)
+                foreach (var value in Left.Inorder())
+                    yield return value;
+            yield return Value;
+            if (Right != null)
+                foreach (var value in Right.Inorder())
+                    yield return value;
+        }
+
+        public IEnumerable<T> Postorder()
+        {
+            if (Left != null)
+                foreach (var value in Left.Postorder())
+                    yield return value;
+            if (Right != null)
+                foreach (var value in Right.Postorder())
+                    yield return value;
+            yield return Value;
+        }
+
+        public IEnumerable<T> LevelOrder()
+        {
+            var queue = new Queue<BinarySearchNode<T>>();
+            queue.Enqueue(this);
+            while (queue.Count != 0)
+            {
+                var node = queue.Dequeue();
+                yield return node.Value;
+                if (node.Left != null)
+                    queue.Enqueue(node.Left);
+                if (node.Right != null)
+                    queue.Enqueue(node.Right);
             }
         }
 

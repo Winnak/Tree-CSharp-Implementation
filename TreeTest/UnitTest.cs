@@ -101,7 +101,7 @@ namespace TreeTest
         {
             var tree = new BinarySearchTree<int>() { 40, 11, 62, 43, 34, 16, 10, 63 };
 
-            Assert.AreEqual(0, tree.IndexOf(tree.Root.TValue), "Checking that root is in the 0. place.");
+            Assert.AreEqual(0, tree.IndexOf(tree.Root.Value), "Checking that root is in the 0. place.");
             Assert.AreEqual(4, tree.IndexOf(16), "Checking 16 is in the 4. place.");
         }
 
@@ -124,6 +124,20 @@ namespace TreeTest
             for (int i = 0; i < expected.Length; i++)
             {
                 Assert.AreEqual(expected[i], tree[i], "Checkin {0} place of tree.", i);
+            }
+        }
+
+        [TestMethod]
+        public void TestBSTSort()
+        {
+            var tree = new BinarySearchTree<int>() { 40, 11, 62, 43, 34, 16, 10, 63 };
+            int[] expected = new int[]{ 10, 11, 16, 34, 40, 43, 62, 63 };
+
+            var sorted = tree.Sort();
+
+            for (int i = 0; i < expected.Length; i++)
+            {
+                Assert.AreEqual(expected[i], sorted[i], "Checkin {0} place of tree.", i);
             }
         }
     }

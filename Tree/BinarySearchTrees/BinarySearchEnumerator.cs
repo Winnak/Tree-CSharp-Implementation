@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Tree.BinarySearchTrees
 {
-    class BinarySearchEnumerator<T> : IEnumerator<T> where T : IComparable
+    internal class BinarySearchEnumerator<T> : IEnumerator<T> where T : IComparable
     {
         public T[] Nodes;
         private int position = -1;

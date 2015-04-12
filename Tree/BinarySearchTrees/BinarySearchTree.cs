@@ -13,15 +13,18 @@ namespace Tree.BinarySearchTrees
         {
             get { return count; }
         }
+
         int ICollection<T>.Count
         {
             get { return this.count; }
         }
+
         public BinarySearchNode<T> Root
         {
             get { return root; }
             set { root = value; }
         }
+
         public bool IsReadOnly
         {
             get { return false; }
@@ -53,6 +56,14 @@ namespace Tree.BinarySearchTrees
             this.RecreateArray();
         }
 
+        public void Add(params T[] bulk)
+        {
+            foreach (var item in bulk)
+            {
+                this.Add(item);
+            }
+        }
+
         public void Insert(int index, T item)
         {
             var parent = root.Find(this[index]);
@@ -62,12 +73,12 @@ namespace Tree.BinarySearchTrees
 
         public T Lowest()
         {
-            return root.FindMinimum().TValue;
+            return root.FindMinimum().Value;
         }
 
         public T Heighest()
         {
-            return root.FindMaximum().TValue;
+            return root.FindMaximum().Value;
         }
 
         public void Clear()
@@ -95,27 +106,13 @@ namespace Tree.BinarySearchTrees
 
         private T[] RecreateArray()
         {
-            //pre-order traversal
-            Stack<BinarySearchNode<T>> stack = new Stack<BinarySearchNode<T>>();
-            stack.Push(null);
-
-            var temp = root;
-            int i = 0;
-
             var preOrderTraversal = new T[count];
+            int index = 0;
 
-            while (temp != null)
+            foreach (var item in root.Preorder())
             {
-                preOrderTraversal[i] = temp.TValue;
-
-                if (temp.Right != null)
-                    stack.Push(temp.Right);
-
-                if (temp.Left != null)
-                    stack.Push(temp.Left);
-
-                temp = stack.Pop();
-                i++;
+                preOrderTraversal[index] = item;
+                index++;
             }
 
             return preOrderTraversal;
@@ -129,25 +126,25 @@ namespace Tree.BinarySearchTrees
         public void CopyTo(T[] array, int arrayIndex)
         {
             //pre-order traversal
-            Stack<BinarySearchNode<T>> stack = new Stack<BinarySearchNode<T>>();
-            stack.Push(null);
-
-            var temp = root;
-            int i = arrayIndex;
-
-            while (temp != null)
+            foreach (var item in root.Preorder())
             {
-                array[i] = temp.TValue;
-
-                if (temp.Right != null)
-                    stack.Push(temp.Right);
-
-                if (temp.Left != null)
-                    stack.Push(temp.Left);
-
-                temp = stack.Pop();
-                i++;
+                array[arrayIndex] = item;
+                arrayIndex++;
             }
+        }
+
+        public T[] Sort()
+        {
+            var sorted = new T[this.count];
+            int index = 0;
+
+            foreach (var item in root.Inorder())
+            {
+                sorted[index] = item;
+                index++;
+            }
+
+            return sorted;
         }
 
         public bool Remove(T item)
