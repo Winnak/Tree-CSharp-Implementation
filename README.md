@@ -4,7 +4,5 @@ I did this just for fun.
 
 ##TODO:
 * Downgrade solution file.
-* BST: Alternate version that uses keys instead of values to sort through
-* BST: Write some documentation
 * Switch unittest from VS' test suite to NUnit.
 * Try heap trees.
