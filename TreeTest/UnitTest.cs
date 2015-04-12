@@ -80,20 +80,28 @@ namespace TreeTest
         public void TestBSTCopyTo()
         {
             var tree = new BinarySearchTree<int>() { 40, 11, 62, 43, 34, 16, 10, 63 };
+
             int[] actual = new int[tree.Count];
             int[] expected = new int[] { 40, 11, 10, 34, 16, 62, 43, 63 };
 
             int[] actual2 = new int[tree.Count + 2];
             int[] expected2 = new int[] { 0, 0, 40, 11, 10, 34, 16, 62, 43, 63 };
 
+            int[] actual3 = new int[tree.Count];
+            int[] expected3 = new int[] { 0, 0, 40, 11, 10, 34, 16, 62 };
+
             tree.CopyTo(actual);
             tree.CopyTo(actual2, 2);
+            tree.CopyTo(actual3, 2, 6);
 
             for (int i = 0; i < expected.Length; i++)
                 Assert.AreEqual(expected[i], actual[i], "\nFailed at [" + i + "]");
 
-            for (int i = 2; i < expected2.Length; i++)
+            for (int i = 0; i < expected2.Length; i++)
                 Assert.AreEqual(expected2[i], actual2[i], "\nFailed at [" + i + "]");
+
+            for (int i = 0; i < expected3.Length; i++)
+                Assert.AreEqual(expected3[i], actual3[i], "\nFailed at [" + i + "]");
         }
 
         [TestMethod]
