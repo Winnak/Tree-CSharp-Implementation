@@ -27,7 +27,7 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Gets or sets the parent <see cref="BinarySearchNode<T>"/>.
+        /// Gets or sets the parent <see cref="BinarySearchNode"/>.
         /// </summary>
         public BinarySearchNode<T> Parent
         {
@@ -36,7 +36,7 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Gets or sets the left <see cref="BinarySearchNode<T>"/> child.
+        /// Gets or sets the left <see cref="BinarySearchNode"/> child.
         /// </summary>
         public BinarySearchNode<T> Left
         {
@@ -45,7 +45,7 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Gets or sets the right <see cref="BinarySearchNode<T>"/> child.
+        /// Gets or sets the right <see cref="BinarySearchNode"/> child.
         /// </summary>
         public BinarySearchNode<T> Right
         {
@@ -54,7 +54,7 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Gets if the <see cref="BinarySearchNode<T>"/> is the root node.
+        /// Gets if the <see cref="BinarySearchNode"/> is the root node.
         /// </summary>
         public bool IsRoot
         {
@@ -62,7 +62,7 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Gets if the <see cref="BinarySearchNode<T>"/> is a leaf node. 
+        /// Gets if the <see cref="BinarySearchNode"/> is a leaf node. 
         /// </summary>
         public bool IsLeaf
         {
@@ -70,7 +70,7 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Gets if the <see cref="BinarySearchNode<T>"/> has any children.
+        /// Gets if the <see cref="BinarySearchNode"/> has any children.
         /// </summary>
         public bool HasChildren
         {
@@ -78,7 +78,7 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Gets if the <see cref="BinarySearchNode<T>"/> has just one child.
+        /// Gets if the <see cref="BinarySearchNode"/> has just one child.
         /// </summary>
         public bool HasSingleChild
         {
@@ -86,7 +86,7 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BinarySearchNode<T>"/> class,
+        /// Initializes a new instance of the <see cref="BinarySearchNode"/> class,
         /// with a value and connected to a tree.
         /// </summary>
         /// <param name="value">The value for this element.</param>
@@ -100,9 +100,9 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Tries to inserts an element into this <see cref="BinarySearchNode<T>"/>.
+        /// Tries to inserts an element into this <see cref="BinarySearchNode"/>.
         /// </summary>
-        /// <remarks>Looks through its children in case it cannot insert into this <see cref="BinarySearchNode<T>"/>.</remarks>
+        /// <remarks>Looks through its children in case it cannot insert into this <see cref="BinarySearchNode"/>.</remarks>
         /// <param name="other">The element to be inserted.</param>
         public void Insert(T other)
         {
@@ -133,7 +133,7 @@ namespace Tree.BinarySearchTrees
         /// <summary>
         /// Looks through its children to find the lowest value child.
         /// </summary>
-        /// <returns>The lowest value stored in the <see cref="BinarySearchTree<T>"/>.</returns>
+        /// <returns>The lowest value stored in the <see cref="BinarySearchTree"/>.</returns>
         public BinarySearchNode<T> FindMinimum()
         {
             if (this.Left != null)
@@ -145,7 +145,7 @@ namespace Tree.BinarySearchTrees
         /// <summary>
         /// Looks through its children to find the highest value child.
         /// </summary>
-        /// <returns>The highest value stored in the <see cref="BinarySearchTree<T>"/>.</returns>
+        /// <returns>The highest value stored in the <see cref="BinarySearchTree"/>.</returns>
         public BinarySearchNode<T> FindMaximum()
         {
             if (this.Right != null)
@@ -157,8 +157,8 @@ namespace Tree.BinarySearchTrees
         /// <summary>
         /// Looks through its children to find the child with the target value, and removes it.
         /// </summary>
-        /// <param name="item">Proposed value of a node in the <see cref="BinarySearchTree<T>"/>.</param>
-        /// <returns><c>True</c> if the value is in the <see cref="BinarySearchTree<T>"/>; otherwise <c>false</c>.</returns>
+        /// <param name="item">Proposed value of a node in the <see cref="BinarySearchTree"/>.</param>
+        /// <returns><c>True</c> if the value is in the <see cref="BinarySearchTree"/>; otherwise <c>false</c>.</returns>
         public bool RemoveValue(T item)
         {
             switch (item.CompareTo(TValue))
@@ -183,10 +183,10 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Determines whether an element is in the <see cref="BinarySearchNode<T>"/> or its children.
+        /// Determines whether an element is in the <see cref="BinarySearchNode"/> or its children.
         /// </summary>
         /// <param name="item">The object to locate.</param>
-        /// <returns><c>True</c> if item is found in the <see cref="BinarySearchNode<T>"/> or its children; otherwise, <c>false</c>.</returns>
+        /// <returns><c>True</c> if item is found in the <see cref="BinarySearchNode"/> or its children; otherwise, <c>false</c>.</returns>
         public bool Contains(T item)
         {
             switch (item.CompareTo(TValue))
@@ -209,10 +209,10 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Searches for a <see cref="BinarySearchNode<T>"/> that matches the conditions defined by the specified value, and returns the first occurrence within this <see cref="BinarySearchNode<T>"/> and its children.
+        /// Searches for a <see cref="BinarySearchNode"/> that matches the conditions defined by the specified value, and returns the first occurrence within this <see cref="BinarySearchNode"/> and its children.
         /// </summary>
         /// <param name="match">The value of the element to search for.</param>
-        /// <returns>The <see cref="BinarySearchNode<T>"/> containing the value.</returns>
+        /// <returns>The <see cref="BinarySearchNode"/> containing the value.</returns>
         public BinarySearchNode<T> Find(T match)
         {
             switch (this.TValue.CompareTo(match))
@@ -299,7 +299,7 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Disposes of this <see cref="BinarySearchNode<T>"/> and its children.
+        /// Disposes of this <see cref="BinarySearchNode"/> and its children.
         /// </summary>
         public void Dispose()
         {

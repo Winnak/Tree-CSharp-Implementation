@@ -19,7 +19,7 @@ namespace Tree.BinarySearchTrees
         private BinarySearchNode<T> root;
 
         /// <summary>
-        /// Gets the number of elements contained in the <see cref="BinarySearchTree<T>"/>.
+        /// Gets the number of elements contained in the <see cref="BinarySearchTree"/>.
         /// </summary>
         public int Count
         {
@@ -55,7 +55,7 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BinarySearchTree<T>"/> class that is empty.
+        /// Initializes a new instance of the <see cref="BinarySearchTree"/> class that is empty.
         /// </summary>
         public BinarySearchTree()
         {
@@ -63,10 +63,10 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Adds an object to the end of the <see cref="BinarySearchTree<T>"/>.
+        /// Adds an object to the end of the <see cref="BinarySearchTree"/>.
         /// </summary>
         /// <remarks>Does not allow duplicates.</remarks>
-        /// <param name="item">The object to be added to the end of the <see cref="BinarySearchTree<T>"/>.</param>
+        /// <param name="item">The object to be added to the end of the <see cref="BinarySearchTree"/>.</param>
         public void Add(T item)
         {
             this.count++;
@@ -81,10 +81,10 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Adds the object(s) to the end of the <see cref="BinarySearchTree<T>"/>.
+        /// Adds the object(s) to the end of the <see cref="BinarySearchTree"/>.
         /// </summary>
         /// <remarks>Does not allow duplicates.</remarks>
-        /// <param name="bulk">The object to be added to the end of the <see cref="BinarySearchTree<T>"/>.</param>
+        /// <param name="bulk">The object to be added to the end of the <see cref="BinarySearchTree"/>.</param>
         public void Add(params T[] bulk)
         {
             foreach (var item in bulk)
@@ -94,7 +94,7 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Inserts an element into the <see cref="BinarySearchTree<T>"/> at the specified index.
+        /// Inserts an element into the <see cref="BinarySearchTree"/> at the specified index.
         /// </summary>
         /// <remarks>Does not allow duplicates.</remarks>
         /// <param name="index">The zero-based index at which item should be inserted.</param>
@@ -106,7 +106,7 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Finds the lowest value stored in the <see cref="BinarySearchTree<T>"/>.
+        /// Finds the lowest value stored in the <see cref="BinarySearchTree"/>.
         /// </summary>
         /// <returns>The lowest value.</returns>
         public T Lowest()
@@ -115,7 +115,7 @@ namespace Tree.BinarySearchTrees
         }
         
         /// <summary>
-        /// Finds the highest value stored in the <see cref="BinarySearchTree<T>"/>.
+        /// Finds the highest value stored in the <see cref="BinarySearchTree"/>.
         /// </summary>
         /// <returns>The highest value.</returns>
         public T Heighest()
@@ -124,7 +124,7 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Removes all values stored in the <see cref="BinarySearchTree<T>"/>.
+        /// Removes all values stored in the <see cref="BinarySearchTree"/>.
         /// </summary>
         public void Clear()
         {
@@ -137,10 +137,10 @@ namespace Tree.BinarySearchTrees
 
         /// <summary>
         /// Searches for the specified object and returns the zero-based index 
-        /// of the first occurrence within the entire <see cref="BinarySearchTree<T>"/>.
+        /// of the first occurrence within the entire <see cref="BinarySearchTree"/>.
         /// </summary>
-        /// <param name="item">The object to locate in the <see cref="BinarySearchTree<T>"/>.</param>
-        /// <returns>he zero-based index of the first occurrence of item within the entire <see cref="BinarySearchTree<T>"/>, if found; otherwise, –1.</returns>
+        /// <param name="item">The object to locate in the <see cref="BinarySearchTree"/>.</param>
+        /// <returns>he zero-based index of the first occurrence of item within the entire <see cref="BinarySearchTree"/>, if found; otherwise, –1.</returns>
         public int IndexOf(T item)
         {
             for (int i = 0; i < this.count; i++)
@@ -151,17 +151,17 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Determines whether an element is in the <see cref="BinarySearchTree<T>"/>.
+        /// Determines whether an element is in the <see cref="BinarySearchTree"/>.
         /// </summary>
-        /// <param name="item">The object to locate in the <see cref="BinarySearchTree<T>"/>.</param>
-        /// <returns><c>True</c> if item is found in the <see cref="BinarySearchTree<T>"/>; otherwise, <c>false</c>.</returns>
+        /// <param name="item">The object to locate in the <see cref="BinarySearchTree"/>.</param>
+        /// <returns><c>True</c> if item is found in the <see cref="BinarySearchTree"/>; otherwise, <c>false</c>.</returns>
         public bool Contains(T item)
         {
             return root.Contains(item);
         }
 
         /// <summary>
-        /// Creates an array with the value stored in the <see cref="BinarySearchTree<T>"/>.
+        /// Creates an array with the value stored in the <see cref="BinarySearchTree"/>.
         /// </summary>
         /// <returns>An array with the values in preorder.</returns>
         private T[] RecreateArray()
@@ -179,10 +179,10 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Copies the entire <see cref="BinarySearchTree<T>"/> to a compatible one-dimensional array, 
+        /// Copies the entire <see cref="BinarySearchTree"/> to a compatible one-dimensional array, 
         /// starting at the beginning of the target array.
         /// </summary>
-        /// <param name="array">The one-dimensional Array that is the destination of the elements copied from <see cref="BinarySearchTree<T>"/>. 
+        /// <param name="array">The one-dimensional Array that is the destination of the elements copied from <see cref="BinarySearchTree"/>. 
         /// The Array must have zero-based indexing.</param>
         public void CopyTo(T[] array)
         {
@@ -190,10 +190,10 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Copies the entire <see cref="BinarySearchTree<T>"/> to a compatible one-dimensional array, 
+        /// Copies the entire <see cref="BinarySearchTree"/> to a compatible one-dimensional array, 
         /// starting at the specified index of the target array.
         /// </summary>
-        /// <param name="array">The one-dimensional Array that is the destination of the elements copied from <see cref="BinarySearchTree<T>"/>. 
+        /// <param name="array">The one-dimensional Array that is the destination of the elements copied from <see cref="BinarySearchTree"/>. 
         /// The Array must have zero-based indexing.</param>
         /// <param name="arrayIndex">The zero-based index in array at which copying begins.</param>
         public void CopyTo(T[] array, int arrayIndex)
@@ -207,10 +207,10 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Copies a range of elements from the <see cref="BinarySearchTree<T>"/> to a compatible one-dimensional array, 
+        /// Copies a range of elements from the <see cref="BinarySearchTree"/> to a compatible one-dimensional array, 
         /// starting at the specified index of the target array.
         /// </summary>
-        /// <param name="array">The one-dimensional Array that is the destination of the elements copied from <see cref="BinarySearchTree<T>"/>. 
+        /// <param name="array">The one-dimensional Array that is the destination of the elements copied from <see cref="BinarySearchTree"/>. 
         /// <param name="arrayIndex">The zero-based index in array at which copying begins.</param>
         /// <param name="count">The number of elements to copy.</param>
         public void CopyTo(T[] array, int arrayIndex, int count)
@@ -229,7 +229,7 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Balances the <see cref="BinarySearchTree<T>"/>.
+        /// Balances the <see cref="BinarySearchTree"/>.
         /// <remarks>Appends lowest first.</remarks>
         /// </summary>
         public void Balance()
@@ -271,7 +271,7 @@ namespace Tree.BinarySearchTrees
 
         /// <summary>
         /// Searches for an element that matches the specified value, 
-        /// and returns the first occurrence within the entire <see cref="BinarySearchTree<T>"/>.
+        /// and returns the first occurrence within the entire <see cref="BinarySearchTree"/>.
         /// </summary>
         /// <param name="match">The element to search for.</param>
         /// <returns>The first element that matches the specified value, if found; otherwise, 
@@ -282,7 +282,7 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Sorts the elements in the entire <see cref="BinarySearchTree<T>"/>.
+        /// Sorts the elements in the entire <see cref="BinarySearchTree"/>.
         /// </summary>
         /// <returns>Array of sorted elements.</returns>
         public T[] Sort()
@@ -300,10 +300,10 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Removes the specific object from the <see cref="BinarySearchTree<T>"/>.
+        /// Removes the specific object from the <see cref="BinarySearchTree"/>.
         /// </summary>
-        /// <param name="item">The object to remove from the <see cref="BinarySearchTree<T>"/>.</param>
-        /// <returns><c>True</c> if value was in the <see cref="BinarySearchTree<T>"/>; 
+        /// <param name="item">The object to remove from the <see cref="BinarySearchTree"/>.</param>
+        /// <returns><c>True</c> if value was in the <see cref="BinarySearchTree"/>; 
         /// otherwise <c>false</c>.</returns>
         public bool Remove(T item)
         {
@@ -313,7 +313,7 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Removes the element at the specified index of the <see cref="BinarySearchTree<T>"/>.
+        /// Removes the element at the specified index of the <see cref="BinarySearchTree"/>.
         /// </summary>
         /// <param name="index">The zero-based index of the element to remove.</param>
         public void RemoveAt(int index)
@@ -322,9 +322,9 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Returns an enumerator that iterates through the <see cref="BinarySearchTree<T>"/>.
+        /// Returns an enumerator that iterates through the <see cref="BinarySearchTree"/>.
         /// </summary>
-        /// <returns>A <see cref="BinarySearchEnumerator<T>"/> for the <see cref="BinarySearchTree<T>"/>.</returns>
+        /// <returns>A <see cref="BinarySearchEnumerator<T>"/> for the <see cref="BinarySearchTree"/>.</returns>
         public IEnumerator<T> GetEnumerator()
         {
             var nodes = new T[count];
@@ -334,9 +334,9 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
-        /// Returns an enumerator that iterates through the <see cref="BinarySearchTree<T>"/>.
+        /// Returns an enumerator that iterates through the <see cref="BinarySearchTree"/>.
         /// </summary>
-        /// <returns>A <see cref="BinarySearchEnumerator<T>"/> for the <see cref="BinarySearchTree<T>"/>.</returns>
+        /// <returns>A <see cref="BinarySearchEnumerator<T>"/> for the <see cref="BinarySearchTree"/>.</returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return (IEnumerator<T>)GetEnumerator();
