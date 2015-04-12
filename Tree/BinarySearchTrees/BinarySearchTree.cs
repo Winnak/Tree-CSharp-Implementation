@@ -324,7 +324,7 @@ namespace Tree.BinarySearchTrees
         /// <summary>
         /// Returns an enumerator that iterates through the <see cref="BinarySearchTree"/>.
         /// </summary>
-        /// <returns>A <see cref="BinarySearchEnumerator<T>"/> for the <see cref="BinarySearchTree"/>.</returns>
+        /// <returns>A <see cref="BinarySearchEnumerator"/> for the <see cref="BinarySearchTree"/>.</returns>
         public IEnumerator<T> GetEnumerator()
         {
             var nodes = new T[count];
@@ -336,7 +336,7 @@ namespace Tree.BinarySearchTrees
         /// <summary>
         /// Returns an enumerator that iterates through the <see cref="BinarySearchTree"/>.
         /// </summary>
-        /// <returns>A <see cref="BinarySearchEnumerator<T>"/> for the <see cref="BinarySearchTree"/>.</returns>
+        /// <returns>A <see cref="BinarySearchEnumerator"/> for the <see cref="BinarySearchTree"/>.</returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return (IEnumerator<T>)GetEnumerator();
