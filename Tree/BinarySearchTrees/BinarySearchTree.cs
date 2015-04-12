@@ -270,6 +270,18 @@ namespace Tree.BinarySearchTrees
         }
 
         /// <summary>
+        /// Searches for an element that matches the specified value, 
+        /// and returns the first occurrence within the entire <see cref="BinarySearchTree<T>"/>.
+        /// </summary>
+        /// <param name="match">The element to search for.</param>
+        /// <returns>The first element that matches the specified value, if found; otherwise, 
+        /// throws an exception.</returns>
+        public BinarySearchNode<T> Find(T match)
+        {
+            return this.Root.Find(match);
+        }
+
+        /// <summary>
         /// Sorts the elements in the entire <see cref="BinarySearchTree<T>"/>.
         /// </summary>
         /// <returns>Array of sorted elements.</returns>
