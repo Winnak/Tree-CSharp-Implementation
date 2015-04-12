@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Tree.BinarySearchTrees
 {
+    [SerializableAttribute]
+    [DebuggerDisplayAttribute("Count = {Count}")]
     /// <summary>
-    /// Represents a strongly typed list of objects that can be accessed by index. 
-    /// Provides methods to search, sort, and manipulate lists.
+    /// Represents a strongly typed tree of objects that can be accessed by index. 
+    /// Provides methods sort, and manipulate tree.
     /// </summary>
     /// <remarks>Does not allow duplicates.</remarks>
-    /// <typeparam name="T">The type of elements in the list.</typeparam>
+    /// <typeparam name="T">The type of elements in the tree.</typeparam>
     public class BinarySearchTree<T> : ICollection<T>, IList<T> where T : IComparable
     {
         private int count;
