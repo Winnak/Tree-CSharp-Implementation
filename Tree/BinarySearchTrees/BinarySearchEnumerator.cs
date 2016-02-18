@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Tree.BinarySearchTrees
+namespace Trees
 {
     /// <summary>
     /// Enumerates the elements of a <see cref="BinarySearchTree"/>.

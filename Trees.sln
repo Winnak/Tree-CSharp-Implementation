@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeTest", "TreeTest\TreeTest.csproj", "{EF00A902-CAB1-484A-AC43-4828C799F0EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreesTest", "TreeTest\TreesTest.csproj", "{EF00A902-CAB1-484A-AC43-4828C799F0EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tree", "Tree\Tree.csproj", "{182FCDEC-FCEB-4D00-80D0-91C2A834D62C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trees", "Tree\Trees.csproj", "{182FCDEC-FCEB-4D00-80D0-91C2A834D62C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

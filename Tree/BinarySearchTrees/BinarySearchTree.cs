@@ -3,10 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace Tree.BinarySearchTrees
+namespace Trees
 {
-    [SerializableAttribute]
-    [DebuggerDisplayAttribute("Count = {Count}")]
+    [Serializable, DebuggerDisplay("Count = {Count}")]
     /// <summary>
     /// Represents a strongly typed tree of objects that can be accessed by index. 
     /// Provides methods sort, and manipulate tree.

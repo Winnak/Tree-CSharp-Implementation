@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Tree.BinarySearchTrees
+namespace Trees
 {
     /// <summary>
     /// Represents a node in a strongly typed tree of objects. 

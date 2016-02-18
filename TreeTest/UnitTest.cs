@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Tree.BinarySearchTrees;
+using Trees;
 
-namespace TreeTest
+namespace TreesTest
 {
     [TestClass]
     public class UnitTest
