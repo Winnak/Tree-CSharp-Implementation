@@ -7,7 +7,7 @@ namespace Tree.BinarySearchTrees
     /// Represents a node in a strongly typed tree of objects. 
     /// </summary>
     /// <typeparam name="T">The type of elements in the node.</typeparam>
-    public class BinarySearchNode<T> : IDisposable where T : IComparable
+    internal class BinarySearchNode<T> : IDisposable where T : IComparable
     {
         private BinarySearchTree<T> tree;
 
@@ -58,7 +58,7 @@ namespace Tree.BinarySearchTrees
         /// </summary>
         public bool IsRoot
         {
-            get { return Parent == null && this.tree.Root == this; }
+            get { return Parent == null && this == this.tree.root; }
         }
 
         /// <summary>
@@ -317,7 +317,7 @@ namespace Tree.BinarySearchTrees
                 }
                 else
                 {
-                    tree.Root = null;
+                    tree.root = null;
                 }
             }
             else

@@ -16,7 +16,7 @@ namespace Tree.BinarySearchTrees
     public class BinarySearchTree<T> : ICollection<T>, IList<T> where T : IComparable
     {
         private int count;
-        private BinarySearchNode<T> root;
+        internal BinarySearchNode<T> root;
 
         /// <summary>
         /// Gets the number of elements contained in the <see cref="BinarySearchTree"/>.
@@ -29,10 +29,9 @@ namespace Tree.BinarySearchTrees
         /// <summary>
         /// Gets or sets the root node of the tree.
         /// </summary>
-        public BinarySearchNode<T> Root
+        public T Root
         {
-            get { return root; }
-            set { root = value; }
+            get { return root.Value; }
         }
 
         /// <summary>
@@ -276,9 +275,9 @@ namespace Tree.BinarySearchTrees
         /// <param name="match">The element to search for.</param>
         /// <returns>The first element that matches the specified value, if found; otherwise, 
         /// throws an exception.</returns>
-        public BinarySearchNode<T> Find(T match)
+        public T Find(T match)
         {
-            return this.Root.Find(match);
+            return this.root.Find(match).Value;
         }
 
         /// <summary>

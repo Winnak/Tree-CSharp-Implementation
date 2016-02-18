@@ -109,7 +109,7 @@ namespace TreeTest
         {
             var tree = new BinarySearchTree<int>() { 40, 11, 62, 43, 34, 16, 10, 63 };
 
-            Assert.AreEqual(0, tree.IndexOf(tree.Root.Value), "Checking that root is in the 0. place.");
+            Assert.AreEqual(0, tree.IndexOf(tree.Root), "Checking that root is in the 0. place.");
             Assert.AreEqual(4, tree.IndexOf(16), "Checking 16 is in the 4. place.");
         }
 
