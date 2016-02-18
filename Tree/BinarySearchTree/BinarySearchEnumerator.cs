@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Trees
 {
     /// <summary>
-    /// Enumerates the elements of a <see cref="BinarySearchTree"/>.
+    /// Enumerates the elements of a <see cref="BinarySearchTree{T}"/>.
     /// </summary>
     /// <typeparam name="T">The type of elements in the tree.</typeparam>
     internal class BinarySearchEnumerator<T> : IEnumerator<T> where T : IComparable
