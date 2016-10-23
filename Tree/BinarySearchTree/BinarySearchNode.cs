@@ -9,7 +9,7 @@ namespace Trees
     /// <typeparam name="T">The type of elements in the node.</typeparam>
     internal class BinarySearchNode<T> : IDisposable where T : IComparable
     {
-        private BinarySearchTree<T> tree;
+        private readonly BinarySearchTree<T> tree;
 
         private T TValue;
 

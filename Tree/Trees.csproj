@@ -35,9 +35,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BinarySearchTrees\BinarySearchNode.cs" />
-    <Compile Include="BinarySearchTrees\BinarySearchEnumerator.cs" />
-    <Compile Include="BinarySearchTrees\BinarySearchTree.cs" />
+    <Compile Include="BinarySearchTree\BinarySearchNode.cs" />
+    <Compile Include="BinarySearchTree\BinarySearchEnumerator.cs" />
+    <Compile Include="BinarySearchTree\BinarySearchTree.cs" />
+    <Compile Include="RedBlackTree\RedBlackTree.cs" />
+    <Compile Include="RedBlackTree\RedBlackTreeNode.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
