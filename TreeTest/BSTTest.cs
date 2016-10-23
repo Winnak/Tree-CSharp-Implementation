@@ -2,10 +2,10 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Trees;
 
-namespace TreesTest
+namespace TreeTest
 {
     [TestClass]
-    public class UnitTest
+    public class BSTTest
     {
         // The int tree
         //               40

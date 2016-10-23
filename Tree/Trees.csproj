@@ -7,7 +7,7 @@
     <ProjectGuid>{182FCDEC-FCEB-4D00-80D0-91C2A834D62C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tree</RootNamespace>
+    <RootNamespace>Trees</RootNamespace>
     <AssemblyName>Tree</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
